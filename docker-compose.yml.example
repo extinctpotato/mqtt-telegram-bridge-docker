@@ -1,0 +1,21 @@
+version: "2"
+services:
+  mqtt:
+    container_name: "mqtt-broker"
+    image: "eclipse-mosquitto"
+    restart: unless-stopped
+    networks:
+      - mqtt-network
+    ports:
+      - "1883:1883"
+  tmbridge:
+    container_name: "tmbridge"
+    image: "tmbridge"
+    restart: unless-stopped
+    volumes:
+      - ./tmbridge.conf:/etc/tmbridge.conf
+    networks:
+      - mqtt-network
+
+networks:
+  mqtt-network:

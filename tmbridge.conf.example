@@ -1,0 +1,9 @@
+[TELEGRAM]
+token =
+chat_id =
+
+[MQTT]
+host = mqtt-broker 
+port = 1883
+timeout = 60
+subscribe = cool-channel
